@@ -3,8 +3,6 @@ rentapply.controller('ProfileCtrl', ['$scope', '$state', '$stateParams', '$locat
 
     var ref = new Firebase("https://openhousing.firebaseio.com/users");
 
-    //$scope.users = $firebaseArray(ref);
-    console.log($scope.users);
 
     $scope.user = {};
 
@@ -13,10 +11,11 @@ rentapply.controller('ProfileCtrl', ['$scope', '$state', '$stateParams', '$locat
     };
 
     $scope.register = function(){
+        $scope.user.registered = true;
+        console.log($scope.user);
         $('#registerModal').modal('hide');
     }
 
-    console.log($stateParams.username);
 
     
 
@@ -27,9 +26,18 @@ rentapply.controller('ProfileCtrl', ['$scope', '$state', '$stateParams', '$locat
         }
     };
 
-    
-    
 
-    console.log($scope.users);
+
+    ref.on("value", function(snapshot) {
+      var users = snapshot.val();
+      for(key in users){
+        if(users[key].userName == $stateParams.username){
+            $scope.user = users[key];
+        }
+      }
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+    
 
 }]);

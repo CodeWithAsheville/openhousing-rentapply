@@ -29,7 +29,7 @@ rentapply.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $c
         controller: 'RegisterToFindTenantsCtrl'
       })
       .state('find', {
-        url: '/find/:username',
+        url: '/find',
         templateUrl: 'find/find.html',
         controller: 'FindCtrl'
       })
