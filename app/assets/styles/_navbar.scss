@@ -17,9 +17,7 @@
   // Prevent floats from breaking the navbar
   @include clearfix();
 
-  @media (min-width: $grid-float-breakpoint) {
-    border-radius: $navbar-border-radius;
-  }
+  
 }
 
 

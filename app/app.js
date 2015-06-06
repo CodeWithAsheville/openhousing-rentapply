@@ -13,6 +13,11 @@ rentapply.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $c
         templateUrl: 'home/home.html',
         controller: 'HomeCtrl'
       })
+      .state('profile', {
+        url: '/profile/:username',
+        templateUrl: 'profile/profile.html',
+        controller: 'ProfileCtrl'
+      })
       .state('home.apply', {
         url: '/apply',
         templateUrl: 'apply/apply.html',
