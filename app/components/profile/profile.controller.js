@@ -3,22 +3,31 @@ rentapply.controller('ProfileCtrl', ['$scope', '$state', '$stateParams', '$locat
 
     var ref = new Firebase("https://openhousing.firebaseio.com/users");
 
-    $scope.users = $firebaseArray(ref);
+    //$scope.users = $firebaseArray(ref);
     console.log($scope.users);
 
     $scope.user = {};
 
+    $scope.registerModal = function(){
+      $('#registerModal').modal({'backdrop' : 'static'}); 
+    };
+
+    $scope.register = function(){
+        $('#registerModal').modal('hide');
+    }
+
     console.log($stateParams.username);
 
     
-    $scope.users.$loaded(function(data){
-        for (var i = 0; i < data.length; i++) {
-            console.log(data[i].userName);
-            if(data.userName === $stateParams.username){
-                $scope.user = $scope.users[i];
-            }
-        };
-    })
+
+    for (var i = 0; i < $scope.users.length; i++) {
+        console.log($scope.users[i].userName);
+        if($scope.users.userName === $stateParams.username){
+            $scope.user = $scope.users[i];
+        }
+    };
+
+    
     
 
     console.log($scope.users);
