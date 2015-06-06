@@ -1,5 +1,5 @@
 //instatiate an AngularJS module and inject an dependancy modules
-var rentapply = angular.module('rentapply', ['ui.router']);
+var rentapply = angular.module('rentapply', ['ui.router', 'firebase']);
  
 //Configure application states and routes
 rentapply.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $compileProvider) {
