@@ -18,15 +18,15 @@ rentapply.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $c
         templateUrl: 'apply/apply.html',
         controller: 'ApplyCtrl'
       })
-      .state('home.renter', {
-        url: '/renter/:id',
-        templateUrl: 'renter/renter.html',
-        controller: 'RenterCtrl'
+      .state('home.registertofindtenants', {
+        url: '/register-to-find-tenants',
+        templateUrl: 'register-to-find-tenants/registertofindtenants.html',
+        controller: 'RegisterToFindTenantsCtrl'
       })
-      .state('home.landlord', {
-        url: '/landlord/:id',
-        templateUrl: 'landlord/landlord.html',
-        controller: 'LandlordCtrl'
+      .state('home.find', {
+        url: '/find/:username',
+        templateUrl: 'find/find.html',
+        controller: 'FindCtrl'
       })
       
 
